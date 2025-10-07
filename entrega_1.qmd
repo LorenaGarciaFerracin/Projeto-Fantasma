@@ -10,6 +10,12 @@ source("rdocs/entrega_1.R")
 
 ```{r}
 library(tinytex)
+tinytex::tlmgr_install(c(
+  "anyfontsize", "multirow", "booktabs", "xcolor", "geometry", 
+  "amsmath", "amssymb", "graphicx", "hyperref", "ulem", 
+  "caption", "float", "titlesec", "fancyhdr", "setspace"
+))
+
 ```
 
 
@@ -23,7 +29,7 @@ Esse template foi criado para o alocado conseguir observar como ficaria sua aná
 ## Análise 1
 
 ```{r}
-#| label: fig-
+#| label: fig-grafico
 #| fig-cap: "Gráfico "
 
 gráfico
@@ -32,8 +38,8 @@ gráfico
 
 A partir do gráfico, podemos deduzir que a receita média das lojas vêm crescendo ao longo dos anos.
 
-::: {#quad- layout-align="center" quad-pos="H"}
-```{=latex}
+
+# Referência
 ## Média
 
 A média é a soma das observações dividida pelo número total delas, dada pela fórmula:
@@ -45,32 +51,6 @@ Com:
 -   $i = 1, \, 2, \, ..., \, n$
 
 -   $n =$ número total de observações
-
-```
-
-Medidas resumo da 
-:::
-
-
-
-::: {#tbl-modalidades layout-align="center" tbl-pos="H"}
-```{=latex}
-
-
-```
-
-
-:::
-
-
-
-
-$\ref{fig-}$
-
-[@tbl-]
-
-
-[**Quadro** @quad-]
 
 
 
