@@ -13,7 +13,7 @@ source("rdocs/entrega_2.R")
 # Rodar apenas uma vez na vida!
 ## Instalando o tinytex(pacote apenas)
 ### CRAN version
-install.packages('tinytex')
+#install.packages('tinytex')
 
 
 ## Baixando o tinytex
@@ -27,29 +27,32 @@ Esse template foi criado para o alocado conseguir observar como ficaria sua aná
 
 # Análises
 
-## Análise 3
+## Análise 2
 
-## Análise 4
+Para analizar a relação entre as duas variáveis quantitativas, peso e altura, é feito um gráfico de dispersão, para compreender como uma influência a outra, se crescem ou não juntas.
 
 ```{r}
-#| label: fig-
+#| label: fig-dispersao
 #| fig-cap: "Gráfico "
 
-
+g_dispersao
 
 ```
+
+A partir do gráfico, pode-se verificar que provavelmente há uma correlação positiva, pois conforme o valor da altura cresce o valor do peso também cresce, assim as variáveis se movem na mesma direção.
+Para verificação da correlação e sua força, será calculado o coeficiente de correlação de Pearson, que verifica o grau de relação linear entre as duas variáveis quantitativas. O valor obtido é 0,6971, isso significa que realmente há uma correlação positiva e direta entre as variáveis, além disso, indica que a força de relação linear é de moderada a forte.
 
 
 ::: {#quad- layout-align="center" quad-pos="H"}
 ```{=latex}
 
-
+coef_pearson
 
 ```
 
 Medidas resumo da 
 :::
-
+coef_pearson
 
 
 ::: {#tbl-modalidades layout-align="center" tbl-pos="H"}
