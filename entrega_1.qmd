@@ -30,7 +30,7 @@ Esse template foi criado para o alocado conseguir observar como ficaria sua aná
 
 ```{r}
 #| label: fig-grafico
-#| fig-cap: "Gráfico "
+#| fig-cap: "Receita total média das lojas ao longo dos anos(1880-1889) "
 
 gráfico
 
@@ -39,18 +39,7 @@ gráfico
 A partir do gráfico, podemos deduzir que a receita média das lojas vêm crescendo ao longo dos anos.
 
 
-# Referência
-## Média
 
-A média é a soma das observações dividida pelo número total delas, dada pela fórmula:
-
-$$\bar{X}=\frac{\sum\limits_{i=1}^{n}X_i}{n}$$
-
-Com:
-
--   $i = 1, \, 2, \, ..., \, n$
-
--   $n =$ número total de observações
 
 
 

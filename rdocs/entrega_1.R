@@ -1,5 +1,4 @@
 source("rdocs/source/packages.R")
-
 # ---------------------------------------------------------------------------- #
 
 #        ______   _____  ________      ________ 
@@ -24,7 +23,7 @@ source("rdocs/source/packages.R")
 # ---------------------------------------------------------------------------- #
 
 
-#CArregando os pacotes que serão usados
+#Carregando os pacotes que serão usados
 library(tidyverse)
 library(lubridate)
 library(readxl)
@@ -52,7 +51,7 @@ infos_produtos$UnityPrice<-infos_produtos$UnityPrice*5.31
 # Separando o ano, usando o lubridate
 relatorio_data <- relatorio_data|>
   mutate( Ano= year(Date))
-view(relatorio_data)
+
 
 #Juntando os bancos de dados 
 banco<-full_join(relatorio_data,infos_vendas, by ="SaleID")
@@ -71,13 +70,15 @@ banco2<-banco|>
 
 # Plotando o gráfico
 gráfico<-ggplot(banco2, aes(x= Ano, y= receita_media_anual))+ 
-  geom_point()+
-  geom_line(color="#A11D21",linewidth = 1.5)+
+  geom_point(colour="#A11D21", size=2)+
+  geom_line(linewidth =1 ,color="#A11D21")+
   labs(
-    title = "Receita total média das lojas(1880-1889)",
     x="Ano",
     y="Receita média(R$)"
   )+
-  theme_estat()
+  theme_estat()+
+  scale_x_continuous(breaks = c(1880:1889))
+
+ggsave("series_uni.pdf", width = 158, height = 93, units = "mm")
 #Chamando o gráfico
 gráfico

@@ -4,3 +4,6 @@
 .Ruserdata
 
 /.quarto/
+dados/
+*.RData
+*.Rhistory

@@ -23,8 +23,19 @@ source("rdocs/source/packages.R")
 # as funções dos pacotes contidos no Tidyverse para realizar suas análises.
 # ---------------------------------------------------------------------------- #
 
+
+#Carregando os pacotes que serão usados
 library(tidyverse)
-view(infos_clientes)
+library(readxl)
+
+# Lendo o arquivo excel que contém os dados do projeto
+dados<- "relatorio_old_town_road.xlsx"
+relatorio_data<- read_excel(dados, sheet = "relatorio_vendas")
+infos_vendas<- read_excel(dados, sheet = "infos_vendas")
+infos_produtos<- read_excel(dados, sheet = "infos_produtos")
+infos_funcionarios<- read_excel(dados, sheet = "infos_funcionarios")
+infos_cidades<- read_excel(dados, sheet = "infos_cidades")
+infos_clientes<- read_excel(dados, sheet = "infos_clientes")
 #Criamos uma nova variavel com o peso dos clientes em kilogramas e 
 #outra da aultura em centímetros,
 
@@ -51,8 +62,3 @@ g_dispersao
 
 #Para calcular as correlações vamos utilizar a função "cor()"
 cor(infos_clientes$Altura_cm,infos_clientes$Peso_kg, method = "pearson")
-cor(infos_clientes$Altura_cm,infos_clientes$Peso_kg, method = "spearman")
-cor(infos_clientes$Altura_cm,infos_clientes$Peso_kg, method = "kendall")
-cov(infos_clientes$Altura_cm,infos_clientes$Peso_kg, method = "pearson")
-cov(infos_clientes$Altura_cm,infos_clientes$Peso_kg, method = "spearman")
-cov(infos_clientes$Altura_cm,infos_clientes$Peso_kg, method = "kendall")

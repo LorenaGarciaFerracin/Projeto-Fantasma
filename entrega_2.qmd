@@ -1,6 +1,6 @@
 ---
 # Nome do arquivo PDF gerado na pasta resultado
-output-file: "Entrega 2"
+output-file: "Entrega 2-Lorena"
 ---
 
 ```{r setup}
@@ -18,7 +18,7 @@ source("rdocs/entrega_2.R")
 
 ## Baixando o tinytex
 library(tinytex)
-tinytex::install_tinytex()
+#tinytex::install_tinytex()
 ```
 
 # Objetivo
@@ -27,54 +27,18 @@ Esse template foi criado para o alocado conseguir observar como ficaria sua aná
 
 # Análises
 
-## Análise 2
+## Análise da variação de peso pela altura dos clientes
 
-Para analizar a relação entre as duas variáveis quantitativas, peso e altura, é feito um gráfico de dispersão, para compreender como uma influência a outra, se crescem ou não juntas.
+Para analisar a relação entre as duas variáveis quantitativas contínuas , peso e altura, é feito um gráfico de dispersão. O objetivo é compreender como uma variável influencia a outra e se existe uma correlação linear, ou seja, se elas crescem ou decrescem juntas.Não foi realizado nenhum agrupamento de dados para essa análise.
 
 ```{r}
 #| label: fig-dispersao
-#| fig-cap: "Gráfico "
+#| fig-cap: "Gráfico de Dispersão do Peso Pela Altura"
 
 g_dispersao
 
 ```
 
-A partir do gráfico, pode-se verificar que provavelmente há uma correlação positiva, pois conforme o valor da altura cresce o valor do peso também cresce, assim as variáveis se movem na mesma direção.
-Para verificação da correlação e sua força, será calculado o coeficiente de correlação de Pearson, que verifica o grau de relação linear entre as duas variáveis quantitativas. O valor obtido é 0,6971, isso significa que realmente há uma correlação positiva e direta entre as variáveis, além disso, indica que a força de relação linear é de moderada a forte.
-
-
-::: {#quad- layout-align="center" quad-pos="H"}
-```{=latex}
-
-coef_pearson
-
-```
-
-Medidas resumo da 
-:::
-coef_pearson
-
-
-::: {#tbl-modalidades layout-align="center" tbl-pos="H"}
-```{=latex}
-
-
-```
-
-
-:::
-
-
-
-
-$\ref{fig-}$
-
-[@tbl-]
-
-
-[**Quadro** @quad-]
-
-
-
-
+A partir do gráfico, observa-se uma tendência de correlação positiva, pois conforme o valor da altura cresce o valor do peso também cresce, assim as variáveis se movem na mesma direção.
+Para verificação da correlação e sua força, será calculado o coeficiente de correlação de Pearson, que verifica o grau de relação linear entre as duas variáveis quantitativas, obtendo-se o valor de 0,6971. Isso significa que, realmente, há uma correlação positiva e direta entre as variáveis, além disso, indica que a força de relação linear é de moderada a forte.
 
