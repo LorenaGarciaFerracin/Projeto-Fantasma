@@ -1,0 +1,307 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
+%
+\documentclass[
+]{estat/estat}
+
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else  
+    % xetex/luatex font selection
+    \setmainfont[]{Arial}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[left=3cm,right=2cm,top=3cm,bottom=2cm]{geometry}
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\setcounter{secnumdepth}{5}
+% Make \paragraph and \subparagraph free-standing
+\makeatletter
+\ifx\paragraph\undefined\else
+  \let\oldparagraph\paragraph
+  \renewcommand{\paragraph}{
+    \@ifstar
+      \xxxParagraphStar
+      \xxxParagraphNoStar
+  }
+  \newcommand{\xxxParagraphStar}[1]{\oldparagraph*{#1}\mbox{}}
+  \newcommand{\xxxParagraphNoStar}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+  \let\oldsubparagraph\subparagraph
+  \renewcommand{\subparagraph}{
+    \@ifstar
+      \xxxSubParagraphStar
+      \xxxSubParagraphNoStar
+  }
+  \newcommand{\xxxSubParagraphStar}[1]{\oldsubparagraph*{#1}\mbox{}}
+  \newcommand{\xxxSubParagraphNoStar}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+\makeatother
+
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\newsavebox\pandoc@box
+\newcommand*\pandocbounded[1]{% scales image to fit in text height/width
+  \sbox\pandoc@box{#1}%
+  \Gscale@div\@tempa{\textheight}{\dimexpr\ht\pandoc@box+\dp\pandoc@box\relax}%
+  \Gscale@div\@tempb{\linewidth}{\wd\pandoc@box}%
+  \ifdim\@tempb\p@<\@tempa\p@\let\@tempa\@tempb\fi% select the smaller of both
+  \ifdim\@tempa\p@<\p@\scalebox{\@tempa}{\usebox\pandoc@box}%
+  \else\usebox{\pandoc@box}%
+  \fi%
+}
+% Set default figure placement to htbp
+\def\fps@figure{htbp}
+\makeatother
+
+\authors{%
+    Estatiano 1 \\
+    Estatiano 2\\
+    Estatiano 3\\
+}
+
+% escreva o nome do cliente aqui
+% se for mais de um separe por \\
+\client{%
+    ESTAT
+}
+% Baixando pacotes
+\RequirePackage{fancyhdr}
+\RequirePackage{graphicx}
+
+\setlength\headheight{28pt}  
+
+\setlength{\parindent}{15pt} % Adiciona indentação nos parágrafos
+\setlength{\parskip}{0pt} % Adiciona 0 espaço entro os parágrafos
+
+\let\oldsection\section
+\renewcommand\section{\clearpage\oldsection}
+\makeatletter
+\@ifpackageloaded{float}{}{\usepackage{float}}
+\floatstyle{plain}
+\@ifundefined{c@chapter}{\newfloat{quadro}{h}{loquad}}{\newfloat{quadro}{h}{loquad}[chapter]}
+\floatname{quadro}{Quadro}
+\floatstyle{plaintop}
+\restylefloat{quadro}
+\newcommand*\listofquadros{\listof{quadro}{List of Testes}}
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\AtBeginDocument{%
+\ifdefined\contentsname
+  \renewcommand*\contentsname{Índice}
+\else
+  \newcommand\contentsname{Índice}
+\fi
+\ifdefined\listfigurename
+  \renewcommand*\listfigurename{Lista de Figuras}
+\else
+  \newcommand\listfigurename{Lista de Figuras}
+\fi
+\ifdefined\listtablename
+  \renewcommand*\listtablename{Lista de Tabelas}
+\else
+  \newcommand\listtablename{Lista de Tabelas}
+\fi
+\ifdefined\figurename
+  \renewcommand*\figurename{Figura}
+\else
+  \newcommand\figurename{Figura}
+\fi
+\ifdefined\tablename
+  \renewcommand*\tablename{Tabela}
+\else
+  \newcommand\tablename{Tabela}
+\fi
+}
+\@ifpackageloaded{float}{}{\usepackage{float}}
+\floatstyle{ruled}
+\@ifundefined{c@chapter}{\newfloat{codelisting}{h}{lop}}{\newfloat{codelisting}{h}{lop}[chapter]}
+\floatname{codelisting}{Listagem}
+\newcommand*\listoflistings{\listof{codelisting}{Lista de Listagens}}
+\captionsetup{labelsep=colon}
+\makeatother
+\makeatletter
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\@ifpackageloaded{subcaption}{}{\usepackage{subcaption}}
+\makeatother
+
+\ifLuaTeX
+\usepackage[bidi=basic]{babel}
+\else
+\usepackage[bidi=default]{babel}
+\fi
+\babelprovide[main,import]{portuguese}
+\ifPDFTeX
+\else
+\babelfont{rm}[]{Arial}
+\fi
+% get rid of language-specific shorthands (see #6817):
+\let\LanguageShortHands\languageshorthands
+\def\languageshorthands#1{}
+\usepackage{bookmark}
+
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same} % disable monospaced font for URLs
+\hypersetup{
+  pdflang={pt},
+  colorlinks=true,
+  linkcolor={black},
+  filecolor={black},
+  citecolor={black},
+  urlcolor={black},
+  pdfcreator={LaTeX via pandoc}}
+
+
+\author{}
+\date{}
+
+\begin{document}
+
+% Limpando tudo
+\fancyhf{} 
+
+% Ajustes do header
+\fancyhead[L]{} % limpando o lado esquerdo
+\fancyhead[R]{\includegraphics[width=0.20\textwidth]{estat/imagens/estat.png}} % adicionando logo no canto direito
+\renewcommand{\headrulewidth}{0pt}   % sem linha embaixo da logo
+
+% Ajustes de fim de página
+\fancyfoot[R]{\textcolor{white}{\thepage}} % Número em branco no canto direito
+
+% Aplicando o estilo que acabamos de criar
+\pagestyle{fancy} 
+
+
+\labelformat{quadro}{\textbf{#1}}
+
+\renewcommand*\contentsname{Sumário}
+{
+\hypersetup{linkcolor=}
+\setcounter{tocdepth}{3}
+\tableofcontents
+}
+
+\section{Objetivo}\label{objetivo}
+
+Esse template foi criado para o alocado conseguir observar como ficaria
+sua análise o arquivo principal. É daqui que o gerente de projetos irá
+copiar a análise e inserir no documento principal que gerará o relatório
+estatístico.
+
+\section{Análises}\label{anuxe1lises}
+
+\subsection{Análise 5}\label{anuxe1lise-5}
+
+\subsection{Análise dos perfis das idades dos clientes paracada loja da
+cidade de Âmbar
+Seco.}\label{anuxe1lise-dos-perfis-das-idades-dos-clientes-paracada-loja-da-cidade-de-uxe2mbar-seco.}
+
+\begin{figure}[H]
+
+\caption{\label{fig-}Boxplot da idade (anos) pelo número da loja de
+Âmbar Seco}
+
+\centering{
+
+\pandocbounded{\includegraphics[keepaspectratio]{entrega_3_files/figure-pdf/fig--1.pdf}}
+
+}
+
+\end{figure}%
+
+\begin{quadro}[H]
+
+\caption{\label{quad-}Medidas resumo da}
+
+\centering{
+
+\begin{quadro}[H]
+    \setlength{ \tabcolsep}{9pt}
+    \renewcommand{  \arraystretch}{1.20}
+    \caption{Medidas resumo da(o) [nome da variável]}
+    \centering
+    \begin{adjustbox}{max width=\textwidth}
+    \begin{tabular} { | l |
+            S[table-format = 2.2]
+            S[table-format = 2.2]
+            S[table-format = 3.2]
+            S[table-format = 2.2]
+            |}
+    \hline
+        \textbf{Estatística} & \textbf{2} & \textbf{6} & \textbf{8} & \textbf{9} \\
+        \hline
+        Média & 34,99 & 39,76 & 35,64 & 33,95 \\
+        Desvio Padrão & 5,47 & 6,05 & 12 & 13,51 \\
+        Variância & 29,91 & 36,64 & 144,12 & 182,54 \\
+        Mínimo & 25 & 30 & 15 & 16 \\
+        1º Quartil & 31 & 34 & 27 & 24 \\
+        Mediana & 34 & 40 & 34 & 31 \\
+        3º Quartil & 40 & 44 & 39 & 39 \\
+        Máximo & 44 & 49 & 77 & 80 \\
+    \hline
+    \end{tabular}
+    
+    \end{adjustbox}
+\end{quadro}
+
+}
+
+\end{quadro}%
+
+\begin{table}[H]
+
+\caption{\label{tbl-modalidades}}
+
+\centering{
+
+}
+
+\end{table}%
+
+
+
+
+\end{document}
