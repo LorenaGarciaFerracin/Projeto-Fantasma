@@ -65,9 +65,10 @@ banco<-full_join(banco, infos_lojas, by="StoreID")
 banco<-full_join(banco, infos_cidades, by="CityID")
 
 #Filtrar para conter apenas os dados da cidadde de Âmbar Seco.
-bancos3<- banco|>
+bancos4<- banco|>
   filter(NameCity=="Âmbar Seco")
-
+bancos3<-bancos4|>
+  distinct(ClientID, .keep_all = TRUE)
 #Criar o gráfico
 box<-ggplot(bancos3) +
   aes(x = reorder(StoreID, Age, FUN = median), y = Age) +
