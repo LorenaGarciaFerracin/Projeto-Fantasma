@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.10.7)  23 OCT 2025 20:47
+This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.10.7)  24 OCT 2025 15:33
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1740,12 +1740,28 @@ File: estat/imagens/pagina-comum.png Graphic file (type bmp)
 
 ]
 LaTeX Font Info:    Font shape `TU/Arial(3)/m/n' will be
-(Font)              scaled to size 14.4pt on input line 236.
+(Font)              scaled to size 14.4pt on input line 238.
 LaTeX Font Info:    Font shape `TU/Arial(3)/b/n' will be
-(Font)              scaled to size 14.4pt on input line 236.
-File: entrega_3_files/figure-pdf/fig--1.pdf Graphic file (type pdf)
-<entrega_3_files/figure-pdf/fig--1.pdf>
-Package hyperref Info: bookmark level for unknown quadro defaults to 0 on input line 257.
+(Font)              scaled to size 14.4pt on input line 238.
+File: entrega_3_files/figure-pdf/fig-3-1.pdf Graphic file (type pdf)
+<entrega_3_files/figure-pdf/fig-3-1.pdf>
+
+
+File: estat/imagens/estat.png Graphic file (type bmp)
+<estat/imagens/estat.png>
+
+Package fancyhdr Warning: \headheight is too small (28.0pt): 
+(fancyhdr)                Make it at least 39.23682pt, for example:
+(fancyhdr)                \setlength{\headheight}{39.23682pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-11.23682pt}.
+
+File: estat/imagens/pagina-comum.png Graphic file (type bmp)
+<estat/imagens/pagina-comum.png>
+[3
+
+]
+Package hyperref Info: bookmark level for unknown quadro defaults to 0 on input line 292.
 
 ! LaTeX Error: Command  1 undefined.
 
@@ -1753,18 +1769,18 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.263     \renewcommand{  \arraystretch}
+l.298     \renewcommand{  \arraystretch}
                                         {1.20}
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
  
 Here is how much of TeX's memory you used:
- 40448 strings out of 470389
- 867058 string characters out of 5483837
- 1439315 words of memory out of 5000000
- 68205 multiletter control sequences out of 15000+600000
+ 40447 strings out of 470389
+ 867062 string characters out of 5483837
+ 1446315 words of memory out of 5000000
+ 68204 multiletter control sequences out of 15000+600000
  628581 words of font info for 75 fonts, out of 8000000 for 9000
  16 hyphenation exceptions out of 8191
  99i,12n,122p,546b,935s stack positions out of 10000i,1000n,20000p,200000b,200000s
-Output written on entrega_3.pdf (2 pages).
+Output written on entrega_3.pdf (3 pages).

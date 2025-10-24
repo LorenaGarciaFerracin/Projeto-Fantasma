@@ -2,7 +2,6 @@
 # Nome do arquivo PDF gerado na pasta resultado
 output-file: "Entrega 3"
 ---
-
 ```{r setup}
 #| include: false
 source("rdocs/entrega_3.R")
@@ -29,25 +28,23 @@ Esse template foi criado para o alocado conseguir observar como ficaria sua aná
 
 # Análises
 
-## Análise 5
+## Análise dos perfis das idades dos clientes para cada loja da cidade de Âmbar Seco.
 
-## Análise dos perfis das idades dos clientes paracada loja da cidade de Âmbar Seco.
+Com o objetivo de entender o perfil da idade dos clientes de Âmbar Seco por loja, foi realizada uma análise descritivas. Os dados foram obtidos por meio da junção das tabelas "infos_vendas", "infos_produtos", "infos_clientes", "infos_lojas",  "infos_cidades". Adicionalmente, o banco de dados foi filtrado para incluir apenas clientes de Âmbar Seco e ajustado para considerar somente clientes únicos, garantindo que a análise do perfil etário não fosse enviesada pelo volume de transações. Além disso, como se tratam de uma variável quantitativa contínua (Idade) e uma variável qualitativa nominal ( Número da Loja), foi feito um diagrama de caixas bivariado (Figura 3), em função do número da Loja,  e uma tabela de medidas resumo (Tabela 2), contendo: média, mediana, quartis, desvio-padrão.
 
 ```{r}
-#| label: fig-
+#| label: fig-3
 #| fig-cap: "Boxplot da idade (anos) pelo número da loja de Âmbar Seco"
 box
-
-
 ```
 
+O diagrama foi construido, de modo que, está ordenado pela ordem crescente da média, que é representada pelo losango branco.
+A Loja 9 possui a menor média de idade das lojas, 33,67, e o segundo menor mínimo, 16 anos, além disso, metade das pessoas que vão a essa Loja têm entre 24 e 39 anos, e possui o maior limite superior, 80 anos, além de vários outliers. Já a Loja 8, possui a segunda menor média entre as lojas, 34,2, e o menor mínimo, 15 anos, metade de seus consumidores tem entre 26 e 38  anos e apresenta valores átipicos maiores do que o seu limite superior. A Loja 2 não possui valores discrepantes, e 50% dos seus clientes tem entre 31 e 40 anos, seu limite infeirior é 25 anos, o que já é maior que a média da loja 9, e seu máximo é 44 anos, diferente das Lojas 8 e 9 que possuem máximos maiores e outliers, isso indica que a idade é mais próxima entre os clientes que a frequentam, o que é confirmado pelo seu desvio-padrão baixo, de 5 anos, o menor desvio padrão, além de ter a menor variância, 31,06. Por fim, a Loja 6, possui a maior média, 40,35 anos de idade, e assim como a loja 2, não possui outliers e sua assimetria é muito menor que nas Lojas 8 e 9, e metade de seus clientes tem entre 35 e 46 anos. Portanto, as Lojas 2 e 6, com menores desvios padrão, 5,47 e 6,03, respectivamente, demonstram um público alvo etário mais homogêneo e definido, concentrado entre aproximadamente 30 e 45 anos. Em contraste, as Lojas 8 e 9, com altos desvios-padrão, 12,7 e 13,31, indicam uma grande heterogeneidade etária devido à presença de valores atípicos e maior dispersão.
 
 
-
-
-
-::: {#quad- layout-align="center" quad-pos="H"}
+::: {#quad-resumo layout-align="center" quad-pos="H"}
 ```{=latex}
+
 \begin{quadro}[H]
 	\setlength{	\tabcolsep}{9pt}
 	\renewcommand{	\arraystretch}{1.20}
@@ -63,19 +60,20 @@ box
 	\hline
 		\textbf{Estatística} & \textbf{2} & \textbf{6} & \textbf{8} & \textbf{9} \\
 		\hline
-		Média & 34,99 & 39,76 & 35,64 & 33,95 \\
-		Desvio Padrão & 5,47 & 6,05 & 12 & 13,51 \\
-		Variância & 29,91 & 36,64 & 144,12 & 182,54 \\
+		Média & 34,92 & 40,35 & 34,2 & 33,67 \\
+		Desvio Padrão & 5,57 & 6,03 & 12,7 & 13,31 \\
+		Variância & 31,06 & 36,39 & 161,23 & 177,18 \\
 		Mínimo & 25 & 30 & 15 & 16 \\
-		1º Quartil & 31 & 34 & 27 & 24 \\
-		Mediana & 34 & 40 & 34 & 31 \\
-		3º Quartil & 40 & 44 & 39 & 39 \\
+		1º Quartil & 31 & 35 & 26 & 24 \\
+		Mediana & 34 & 41 & 32,5 & 30,5 \\
+		3º Quartil & 40 & 46 & 38 & 39 \\
 		Máximo & 44 & 49 & 77 & 80 \\
 	\hline
 	\end{tabular}
 	\label{quad:quadro_resumo1}
 	\end{adjustbox}
 \end{quadro}
+
 ```
 
 Medidas resumo da 
@@ -86,4 +84,45 @@ Medidas resumo da
 ::: {#tbl-modalidades layout-align="center" tbl-pos="H"}
 ```{=latex}
 
+\begin{quadro}[H]
+	\setlength{	\tabcolsep}{9pt}
+	\renewcommand{	\arraystretch}{1.20}
+	\caption{Medidas resumo da(o) [nome da variável]}
+	\centering
+	\begin{adjustbox}{max width=\textwidth}
+	\begin{tabular} { | l |
+			S[table-format = 2.2]
+			S[table-format = 2.2]
+			S[table-format = 3.2]
+			S[table-format = 2.2]
+			|}
+	\hline
+		\textbf{Estatística} & \textbf{2} & \textbf{6} & \textbf{8} & \textbf{9} \\
+		\hline
+		Média & 34,92 & 40,35 & 34,2 & 33,67 \\
+		Desvio Padrão & 5,57 & 6,03 & 12,7 & 13,31 \\
+		Variância & 31,06 & 36,39 & 161,23 & 177,18 \\
+		Mínimo & 25 & 30 & 15 & 16 \\
+		1º Quartil & 31 & 35 & 26 & 24 \\
+		Mediana & 34 & 41 & 32,5 & 30,5 \\
+		3º Quartil & 40 & 46 & 38 & 39 \\
+		Máximo & 44 & 49 & 77 & 80 \\
+	\hline
+	\end{tabular}
+	\label{quad:quadro_resumo1}
+	\end{adjustbox}
+\end{quadro}
 ```
+
+
+:::
+
+
+
+
+$\ref{fig-}$
+
+[@tbl-]
+
+
+[**Quadro** @quad-]
