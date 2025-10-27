@@ -10,11 +10,11 @@ source("rdocs/entrega_1.R")
 
 ```{r}
 library(tinytex)
-tinytex::tlmgr_install(c(
-  "anyfontsize", "multirow", "booktabs", "xcolor", "geometry", 
-  "amsmath", "amssymb", "graphicx", "hyperref", "ulem", 
-  "caption", "float", "titlesec", "fancyhdr", "setspace"
-))
+#tinytex::tlmgr_install(c(
+#  "anyfontsize", "multirow", "booktabs", "xcolor", "geometry", 
+#  "amsmath", "amssymb", "graphicx", "hyperref", "ulem", 
+#  "caption", "float", "titlesec", "fancyhdr", "setspace"
+#))
 
 ```
 
@@ -38,6 +38,7 @@ O objetivo dessa análise é entender o comportamento da receita média dos anos
 gráfico
 
 ```
+
 
 A partir do gráfico, podemos deduzir que a receita média das lojas vêm crescendo ao longo dos anos em um ritmo quase que constante, o valor da receita média só tem uma leve queda no ano de 1888, de 1.687,00 reais, e logo após essas quedas a receita volta a crescer. Em especial, houve um grande crescimento entre os anos de 1888 e 1889, onde a receita média creceu de 21.251,00 reais.
 Pode-se observar que houve um aumento de 147,06% da receita total média em dez anos, e a espectativa para os próximos anos é que essa continue a crescer, se seguir os mesmos padrões.

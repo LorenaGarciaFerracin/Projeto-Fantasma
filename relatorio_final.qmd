@@ -6,7 +6,7 @@ output-file: Projeto Fantasma-Lorena
 ---
 
 ```{r, include=FALSE}
-source("rdocs/packages.R")
+source("rdocs/source/packages.R")
 ```
 
 # Introdução
@@ -150,7 +150,7 @@ Onde:
 Vale ressaltar que o coeficiente de Pearson é paramétrico e, portanto, sensível quanto à normalidade (simetria) dos dados.
 
 # Análises
-
+## Análise dos top 3 produtos mais vendidos nas top 3 lojas com maior receita em 1889
   
 
 # Conclusões

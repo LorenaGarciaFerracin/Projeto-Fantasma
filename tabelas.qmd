@@ -1,0 +1,31 @@
+---
+title: "tabelas"
+format: html
+editor: visual
+---
+
+::: {#tbl-modalidades layout-align="center" tbl-pos="H"}
+```{=latex}
+\begin{table}[H]
+    \caption{Média das receitas anuais das lojas por Ano}
+    \centering
+    \label{tab:media_receitas_por_ano}
+    \begin{tabular}{l S[table-format=6.2]}
+        \toprule
+        \textbf{Ano} & {\textbf{Média das receitas das lojas}} \\
+        \midrule
+        1880 & 105399 \\
+        1881 & 112110 \\
+        1882 & 112452 \\
+        1883 & 116857 \\
+        1884 & 119990 \\
+        1885 & 129969 \\
+        1886 & 130988 \\
+        1887 & 135445 \\
+        1888 & 133758 \\
+        1889 & 155009 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+```
+:::

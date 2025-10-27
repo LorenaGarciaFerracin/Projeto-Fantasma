@@ -72,11 +72,32 @@ banco5<- banco|>
   summarise(receita_total_loja=sum(receita_por_venda),
             .groups = 'drop_last')|>
   arrange(desc(receita_total_loja))
-head(banco5, 3)
+print(banco5)
 
 
 # FAZER UMA TABELA 
-
+\begin{table}[]
+\begin{tabular}{ll}
+Loja Ouro Fino            & 197313 \\
+Loja TendTudo             & 196340 \\
+Ferraria Apache           & 181689 \\
+Varejo Ejo                & 169266 \\
+Vendinha Rápida           & 168723 \\
+Ferraria Martelo de Ferro & 167515 \\
+Ferraria Bruta            & 160958 \\
+Venda Brava               & 156760 \\
+Loja Esperança            & 156663 \\
+Saloon Luar               & 154093 \\
+Saloon Rastro de Poeira   & 153315 \\
+Ferraria Seca             & 141790 \\
+Banco Careca              & 139092 \\
+Loja do Forte             & 136916 \\
+Loja Riacho Prateado      & 134294 \\
+Banco Santa Fé            & 132694 \\
+Saloon Guerreiro          & 132523 \\
+Saloon                    & 110220
+\end{tabular}
+\end{table}
 
 # Agora fazemos um data frame para cada loja para descobrir qual foram os produtos mais vendidos em cada uma delas
 
@@ -90,6 +111,21 @@ lojaourofino<- banco|>
   arrange(desc(quantidade_total_item))
 head(lojaourofino, 3)  
 # FAZER UMA TABELA 
+lojaourofino
+\begin{table}[]
+\begin{tabular}{ll}
+Botas de Couro  & 52 \\
+Whisky          & 49 \\
+Chapéu de Couro & 45 \\
+Colt. 45        & 44 \\
+Municao         & 39 \\
+Espingarda      & 38 \\
+Sela            & 37 \\
+Pá              & 34 \\
+Machado         & 27 \\
+Cavalo          & 26
+\end{tabular}
+\end{table}
 
 loja_tendtudo<- banco|>
   mutate( Ano= year(Date))|>
@@ -100,7 +136,20 @@ loja_tendtudo<- banco|>
             .groups = 'drop_last')|>
   arrange(desc(quantidade_total_item))
 head(loja_tendtudo, 3) 
-
+\begin{table}[]
+\begin{tabular}{ll}
+Espingarda      & 53 \\
+Whisky          & 49 \\
+Colt. 45        & 43 \\
+Botas de Couro  & 39 \\
+Chapéu de Couro & 33 \\
+Sela            & 29 \\
+Cavalo          & 25 \\
+Pá              & 24 \\
+Municao         & 21 \\
+Machado         & 8 
+\end{tabular}
+\end{table}
 #FAzER UMA TABELA
 ferraria_apache<- banco|>
   mutate( Ano= year(Date))|>
@@ -113,3 +162,17 @@ ferraria_apache<- banco|>
 head(ferraria_apache, 3) 
 
 #FAZER TABELA 
+\begin{table}[]
+\begin{tabular}{ll}
+Chapéu de Couro & 52 \\
+Espingarda      & 42 \\
+Machado         & 41 \\
+Whisky          & 41 \\
+Sela            & 35 \\
+Municao         & 30 \\
+Botas de Couro  & 28 \\
+Cavalo          & 27 \\
+Colt. 45        & 23 \\
+Pá              & 23
+\end{tabular}
+\end{table}
