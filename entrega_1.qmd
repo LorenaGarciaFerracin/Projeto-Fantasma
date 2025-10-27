@@ -29,7 +29,7 @@ O cliente gostaria de entender como está sendo a receita total média das lojas
 
 ## Análise da receita média das lojas entre os anos de 1880 até 1889
 
-O objetivo dessa análise é entender o comportamento da receita média dos anos ao longo dos anos, se há ou não um crescimento ou decrescimento durante o período de tempo. Para essa análise, transformamos os dados dos valores das ventas que estavam em dólares, para reais, multiplicando-os por 5,31. 
+O objetivo dessa análise é entender o comportamento da receita média dos anos ao longo dos anos, se há ou não um crescimento ou decrescimento durante o período de tempo. Para essa análise, transformamos os dados dos valores das ventas que estavam em dólares, para reais, multiplicando-os por 5,31. Além disso, os dados foram obtidos por meio da junção das tabelas "infos_vendas", "infos_produtos" e "relatorio_vendas". Como ano é uma varíavel quantitativa discreta, uma vez que está definido em um certo intervalo de tempo, e a receita média é uma variável quantitativa discreta, já que depende de uma medição, nesse caso o real, é feito um gráfico de linhas univariado em função dessas duas variáveis. Também há uma tabela com o ano e a receita total média das lojas, a fim de esclareccer os valores.
 
 ```{r}
 #| label: fig-grafico
@@ -39,7 +39,8 @@ gráfico
 
 ```
 
-A partir do gráfico, podemos deduzir que a receita média das lojas vêm crescendo ao longo dos anos.
+A partir do gráfico, podemos deduzir que a receita média das lojas vêm crescendo ao longo dos anos em um ritmo quase que constante, o valor da receita média só tem uma leve queda no ano de 1888, de 1.687,00 reais, e logo após essas quedas a receita volta a crescer. Em especial, houve um grande crescimento entre os anos de 1888 e 1889, onde a receita média creceu de 21.251,00 reais.
+Pode-se observar que houve um aumento de 147,06% da receita total média em dez anos, e a espectativa para os próximos anos é que essa continue a crescer, se seguir os mesmos padrões.
 
 
 

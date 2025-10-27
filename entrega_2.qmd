@@ -40,5 +40,5 @@ g_dispersao
 ```
 
 A partir do gráfico, observa-se uma tendência de correlação positiva, pois conforme o valor da altura cresce o valor do peso também cresce, assim as variáveis se movem na mesma direção.
-Para verificação da correlação e sua força, será calculado o coeficiente de correlação de Pearson, que verifica o grau de relação linear entre as duas variáveis quantitativas, obtendo-se o valor de 0,6971. Isso significa que, realmente, há uma correlação positiva e direta entre as variáveis, além disso, indica que a força de relação linear é de moderada a forte.
+Para verificação da correlação e sua força, foi calculado o coeficiente de correlação de Pearson, que verifica o grau de relação linear entre as duas variáveis quantitativas, obtendo-se o valor de 0,6971. Isso significa que, realmente, há uma correlação positiva e direta entre as variáveis, além disso, indica que a força de relação linear é de moderada a forte.
 

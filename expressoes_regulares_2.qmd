@@ -1,0 +1,107 @@
+---
+title: "Expressões regulares"
+author: "Lorena Garcia Ferracin - 251011432"
+format: html
+editor: visual
+---
+
+Parte 1
+
+{r}
+library(tidyverse)
+library(dados)
+
+
+1.1
+
+ Usando str_detect(), escreva um código que encontre todas as frutas no vetor fruit que começam com a letra “a” ou terminam com a letra “a”. Imprima o resultado. (Dica: use âncoras e o operador de alternância |).
+
+{r}
+frutas<-fruit[str_detect(fruit, "^a|a$")] 
+frutas
+
+1.2
+
+Usando str_detect() e sum(), conte quantas palavras no vetor words não contêm nenhuma vogal (a, e, i, o, u), ignorando se são maiúsculas ou minúsculas.
+
+{r}
+palavras<- str_detect(words, "[aeiouAEIOU]", negate=TRUE)
+total_palavras<-sum(palavras)
+total_palavras
+
+1.3
+
+Usando str_count(), crie um tibble a partir do vetor fruit com duas colunas: a primeira chamada fruta e a segunda chamada num_vogais, que conta o número de vogais em cada nome de fruta. Ignore a diferença entre maiúsculas e minúsculas. Exiba as 5 primeiras linhas do seu tibble.
+
+{r}
+fruta_vogal<- tibble(fruta=fruit,
+                     num_vogais=str_count(fruit, "[aeiouAEIOU]"))
+head(fruta_vogal, 5)
+
+Parte 2
+
+{r}
+telefones <- c(
+  "(61) 99876-5432", 
+  "61987654321", 
+  "Telefone: (61) 9 1234-5678",
+  "N/A"
+)
+
+2.1
+
+Usando str_remove_all(), remova todos os caracteres que não são dígitos. O resultado deve ser um vetor de caracteres contendo apenas os números.
+
+{r}
+digitos<- str_remove_all(telefones, "[^0-9]")
+digitos
+
+2.2
+
+ Usando o resultado do passo anterior e a função str_replace(), adicione a formatação (XX) XXXXX-XXXX. Para isso, você precisará usar grupos de captura e referências anteriores (\\1, \\2, \\3). (Dica: o padrão deve capturar os 2 primeiros dígitos, os 5 seguintes e os 4 últimos).
+
+{r}
+formatado<- str_replace(digitos,"^(\\d{2})(\\d{5})(\\d{4})$","(\\1) \\2-\\3")
+formatado
+
+Parte 3
+
+{r}
+df_produtos <- tribble(
+  ~codigo_produto,
+  "ELE[101-2023]",
+  "LIV[056-2024]",
+  "ROU[2345-2022]",
+  "ELE[009-2023]",
+)
+df_produtos
+
+
+3.1
+
+ Use a função tidyr::separate_wider_regex() para dividir a coluna codigo_produto em três novas colunas: categoria, id_numerico e ano.
+
+Você precisará fornecer um vetor nomeado para o argumento patterns.
+
+As partes do texto que são literais (como -) devem ser incluídas no padrão, mas sem nome.
+
+Lembre-se que [A-Z]+ corresponde a uma ou mais letras maiúsculas e \\d+ corresponde a um ou mais dígitos.
+
+O resultado final deve ser um tibble com as três novas colunas e os dados extraídos corretamente.
+
+{r}
+df_separado <- df_produtos %>%
+  separate_wider_regex(
+    cols = codigo_produto,
+    patterns = c(
+  categoria = "[A-Z]{3}",
+  "\\[",
+  id_numerico = "\\d+",
+  "-",
+  ano = "\\d{4}",
+  "\\]"
+)
+  )
+print(df_separado)
+
+
