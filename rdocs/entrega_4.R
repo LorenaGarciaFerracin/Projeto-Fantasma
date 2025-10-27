@@ -1,5 +1,4 @@
 source("rdocs/source/packages.R")
-
 # ---------------------------------------------------------------------------- #
 
 #        ______   _____  ________      ________ 
@@ -22,13 +21,6 @@ source("rdocs/source/packages.R")
 # de teste depreciados, ou ao menos deixando como comentário. Dê preferência
 # as funções dos pacotes contidos no Tidyverse para realizar suas análises.
 # ---------------------------------------------------------------------------- #
-
-
-#Idade dos clientes de Âmbar Seco a depender da loja (26/10)
-#Com o intuito de entender melhor o perfil das idades dos clientes nas diferentes
-#lojas da cidade de Âmbar Seco, foi solicitado a nós encontrar essas características
-#dentro do banco de dados e mostrar quais são os perfis das idades dos clientes para
-#cada loja dessa pequena cidade.
 
 #Carregando os pacotes que serão usados
 library(tidyverse)
@@ -56,30 +48,68 @@ infos_clientes<-infos_clientes|>
 infos_lojas<-infos_lojas|>
   rename(StoreID=Stor3ID)
 
-#Juntando os bancos de dados 
 banco<-full_join(relatorio_data,infos_vendas, by ="SaleID")
 banco<-full_join(banco,infos_produtos, by= "ItemID")
 banco<-full_join(banco, infos_clientes, by="ClientID")
 banco<-full_join(banco, infos_lojas, by="StoreID")
 banco<-full_join(banco, infos_cidades, by="CityID")
 
-#Filtrar para conter apenas os dados da cidadde de Âmbar Seco.
-bancos4<- banco|>
-  filter(NameCity=="Âmbar Seco")
-bancos3<-bancos4|>
-  distinct(ClientID, .keep_all = TRUE)
-#Criar o gráfico
-box<-ggplot(bancos3) +
-  aes(x = reorder(NameStore, Age, FUN = median), y = Age) +
-  geom_boxplot(fill = c("#A11D21"), width = 0.5) +
-  stat_summary(
-    fun = "mean", geom = "point", shape = 23, size = 3, fill = "white") +
-  labs(x = "Nome da Loja de Âmbar Seco", y = "Idade (Anos)") +
-  theme_estat()
-ggsave("box_bi.pdf", width = 158, height = 93, units = "mm")
-box
+#O top 3 produtos mais vendidos nas top 3 lojas com maior receita em
+#1889 (02/11)
+#O cliente quer saber quais são os 3
+#produtos mais vendidos nas 3 lojas que tiveram a maior 
+#receita no ano de 1889, para dessa forma, entender quais 
+#foram esses produtos, a quantidade vendida e as lojas que mais venderam 
+#neste ano.
 
-tabela<-bancos3 %>%
-  group_by(StoreID) %>% # caso mais de uma categoria
-  print_quadro_resumo(var_name = Age)
 
+# Primeiro temos que ver quais foram as 3 lojas que maior receita em 1889
+banco5<- banco|>
+  mutate( Ano= year(Date))|>
+  filter(Ano==1889)|>
+  mutate(receita_por_venda = Quantity*UnityPrice*5.31)|>
+  group_by(NameStore)|>
+  summarise(receita_total_loja=sum(receita_por_venda),
+            .groups = 'drop_last')|>
+  arrange(desc(receita_total_loja))
+head(banco5, 3)
+
+
+# FAZER UMA TABELA 
+
+
+# Agora fazemos um data frame para cada loja para descobrir qual foram os produtos mais vendidos em cada uma delas
+
+lojaourofino<- banco|>
+  mutate( Ano= year(Date))|>
+  filter(Ano==1889)|>
+  filter(NameStore=="Loja Ouro Fino")|>
+  group_by(NameProduct)|>
+  summarise(quantidade_total_item=sum(Quantity),
+            .groups = 'drop_last')|>
+  arrange(desc(quantidade_total_item))
+head(lojaourofino, 3)  
+# FAZER UMA TABELA 
+
+loja_tendtudo<- banco|>
+  mutate( Ano= year(Date))|>
+  filter(Ano==1889)|>
+  filter(NameStore=="Loja TendTudo")|>
+  group_by(NameProduct)|>
+  summarise(quantidade_total_item=sum(Quantity),
+            .groups = 'drop_last')|>
+  arrange(desc(quantidade_total_item))
+head(loja_tendtudo, 3) 
+
+#FAzER UMA TABELA
+ferraria_apache<- banco|>
+  mutate( Ano= year(Date))|>
+  filter(Ano==1889)|>
+  filter(NameStore=="Ferraria Apache")|>
+  group_by(NameProduct)|>
+  summarise(quantidade_total_item=sum(Quantity),
+            .groups = 'drop_last')|>
+  arrange(desc(quantidade_total_item))
+head(ferraria_apache, 3) 
+
+#FAZER TABELA 

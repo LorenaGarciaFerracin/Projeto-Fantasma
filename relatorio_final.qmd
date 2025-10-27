@@ -1,12 +1,11 @@
 ---
-title: "Modelo Projeto - Quarto"
+title: "Projeto Fantasma"
 
 # Nome do documento PDF gerado
-output-file: titulo do projeto
+output-file: Projeto Fantasma-Lorena
 ---
 
-```{r}
-#| include: false
+```{r, include=FALSE}
 source("rdocs/packages.R")
 ```
 

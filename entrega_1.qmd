@@ -23,10 +23,13 @@ tinytex::tlmgr_install(c(
 
 Esse template foi criado para o alocado conseguir observar como ficaria sua análise o arquivo principal. É daqui que o gerente de projetos irá copiar a análise e inserir no documento principal que gerará o relatório estatístico.
 
-
+A receita média das lojas registrada nos anos de 1880 até 1889 (12/10)
+O cliente gostaria de entender como está sendo a receita total média das lojas, em reais, nessa região nos últimos 10 anos, ano por ano, começando no ano de 1880 até o ano de 1889, a fim de compreender se houve um aumento ou diminuição na quantidade de receita produzida média ao longo do tempo. Considere a cotação do dólar à 5,31 reais.
 # Análises
 
-## Análise 1
+## Análise da receita média das lojas entre os anos de 1880 até 1889
+
+O objetivo dessa análise é entender o comportamento da receita média dos anos ao longo dos anos, se há ou não um crescimento ou decrescimento durante o período de tempo. Para essa análise, transformamos os dados dos valores das ventas que estavam em dólares, para reais, multiplicando-os por 5,31. 
 
 ```{r}
 #| label: fig-grafico

@@ -83,4 +83,3 @@ ggsave("series_uni.pdf", width = 158, height = 93, units = "mm")
 #Chamando o gráfico
 gráfico
 
-
