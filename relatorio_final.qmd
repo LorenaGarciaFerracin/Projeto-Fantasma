@@ -7,6 +7,16 @@ output-file: Projeto Fantasma-Lorena
 
 ```{r, include=FALSE}
 source("rdocs/source/packages.R")
+library(tinytex)
+source("rdocs/entrega_1.R")
+source("rdocs/entrega_2.R")
+source("rdocs/entrega_3.R")
+tinytex::tlmgr_install(c(
+  "anyfontsize", "multirow", "booktabs", "xcolor", "geometry", 
+  "amsmath", "amssymb", "graphicx", "hyperref", "ulem", 
+  "caption", "float", "titlesec", "fancyhdr", "setspace"
+))
+
 ```
 
 # Introdução

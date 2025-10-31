@@ -1,11 +1,11 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.10.7)  27 OCT 2025 20:16
+This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.10.27)  31 OCT 2025 14:16
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
 **relatorio_final.tex
 (./relatorio_final.tex
 LaTeX2e <2025-06-01> patch level 1
-L3 programming layer <2025-09-02>
+L3 programming layer <2025-10-09>
 (./estat/estat.cls
 
 LaTeX Warning: You have requested document class `estat/estat',
@@ -239,39 +239,28 @@ Invalid UTF-8 byte or sequence at line 3 replaced by U+FFFD.
 Package: anyfontsize 2007/11/22 anyfontsize.sty by pts
 ) (c:/Users/LENOVO/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/setspace/setspace.sty
 Package: setspace 2022/12/04 v6.7b set line spacing
-) (c:/Users/LENOVO/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/fontspec/fontspec.sty (c:/Users/LENOVO/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/l3packages/xparse/xparse.sty (c:/Users/LENOVO/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/l3kernel/expl3.sty
-Package: expl3 2025-10-24 L3 programming layer (loader) 
+) (c:/Users/LENOVO/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/fontspec/fontspec.sty (c:/Users/LENOVO/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/l3packages/xparse/xparse.sty
 
-! LaTeX Error: Mismatched LaTeX support files detected.
-(LaTeX)        Loading 'expl3.sty' aborted!
-(LaTeX)        
-(LaTeX)        The L3 programming layer in the LaTeX format
-(LaTeX)        is dated 2025-09-02, but in your TeX tree the files require
-(LaTeX)        at least 2025-10-24.
+! LaTeX Error: File `expl3.sty' not found.
 
-For immediate help type H <return>.
- ...                                              
-                                                  
-l.78      \ExplLoaderFileDate{expl3.sty}}
-                                         %
+Type X to quit or <RETURN> to proceed,
+or enter new name. (Default extension: sty)
 
-The most likely causes are:
- - A recent format generation failed;
- - A stray format file in the user tree which needs to be removed or rebuilt;
- - You are running a manually installed version of expl3.sty
-   which is incompatible with the version in LaTeX.
-
-LaTeX will abort loading the incompatible support files but this may lead to
-later errors. Please ensure that your LaTeX format is correctly regenerated.
-
+Enter file name: 
+! Emergency stop.
+<read *> 
+         
+l.22 \RequirePackage{expl3}[2018-04-12]
+                                       ^^M
+*** (cannot \read from terminal in nonstop modes)
 
  
 Here is how much of TeX's memory you used:
- 2957 strings out of 470389
- 44025 string characters out of 5483837
- 433014 words of memory out of 5000000
- 31328 multiletter control sequences out of 15000+600000
+ 2947 strings out of 470404
+ 43408 string characters out of 5484035
+ 430437 words of memory out of 5000000
+ 31316 multiletter control sequences out of 15000+600000
  627729 words of font info for 41 fonts, out of 8000000 for 9000
- 16 hyphenation exceptions out of 8191
- 78i,0n,100p,236b,42s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 14 hyphenation exceptions out of 8191
+ 72i,0n,79p,236b,40s stack positions out of 10000i,1000n,20000p,200000b,200000s
 No pages of output.
