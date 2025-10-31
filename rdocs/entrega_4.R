@@ -176,3 +176,8 @@ Colt. 45        & 23 \\
 Pá              & 23
 \end{tabular}
 \end{table}
+
+if (!requireNamespace("tinytex", quietly = TRUE)) {
+  install.packages("tinytex")
+}
+tinytex::tlmgr_install(c("listings", "amsmath", "amssymb", "fancyhdr"))

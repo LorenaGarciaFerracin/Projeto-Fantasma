@@ -4,19 +4,26 @@ title: "Projeto Fantasma"
 # Nome do documento PDF gerado
 output-file: Projeto Fantasma-Lorena
 ---
+tlmgr install multibib
 
 ```{r, include=FALSE}
 source("rdocs/source/packages.R")
-library(tinytex)
+#library(tinytex)
 source("rdocs/entrega_1.R")
 source("rdocs/entrega_2.R")
 source("rdocs/entrega_3.R")
-tinytex::tlmgr_install(c(
-  "anyfontsize", "multirow", "booktabs", "xcolor", "geometry", 
-  "amsmath", "amssymb", "graphicx", "hyperref", "ulem", 
-  "caption", "float", "titlesec", "fancyhdr", "setspace","multibib",  "newfloat", "tabls", "adjustbox", "listings.sty"
-))
+#tinytex::tlmgr_install(c(
+#  "anyfontsize", "multirow", "booktabs", "xcolor", "geometry", 
+#  "amsmath", "amssymb", "graphicx", "hyperref", "ulem", 
+#  "caption", "float", "titlesec", "fancyhdr", "setspace","multibib",  #"newfloat", "tabls", "adjustbox", "listings"
+#))
+# Instale o pacote 'tinytex' se ainda não estiver instalado
+if (!requireNamespace("tinytex", quietly = TRUE)) {
+  install.packages("tinytex")
+}
 
+# Use a função do tinytex para instalar o pacote multibib
+tinytex::tlmgr_install("multibib")
 ```
 
 # Introdução
