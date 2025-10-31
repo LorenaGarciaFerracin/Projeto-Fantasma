@@ -14,12 +14,16 @@ source("rdocs/entrega_3.R")
 tinytex::tlmgr_install(c(
   "anyfontsize", "multirow", "booktabs", "xcolor", "geometry", 
   "amsmath", "amssymb", "graphicx", "hyperref", "ulem", 
-  "caption", "float", "titlesec", "fancyhdr", "setspace"
+  "caption", "float", "titlesec", "fancyhdr", "setspace","multibib",  "newfloat", "tabls", "adjustbox", "listings.sty"
 ))
 
 ```
 
 # Introdução
+
+Este relatório estatístico foi elaborado para a Old Town Road.Ltda, uma holding sob a liderança de João Sábio, com o objetivo de apoiar sua estratégia de expansão e investimento em uma nova região do comércio no faroeste.
+O objetivo geral deste trabalho é analisar estatisticamente diversos aspectos do mercado-alvo, visando identificar padrões de consumo e características demográficas relevantes. Especificamente, o relatório apresentará quatro análises estatísticas distintas focadas na receita média das lojas no período de 10 anos, a relação entre a altura e o peso dos clientes, a idade dos clientes das lojas da cidade de Âmbar Seco e os produtos mais vendidos nas lojas que mais faturam. A relevância deste estudo reside na sua capacidade de mitigar riscos de investimento, otimizar a oferta de produtos e serviços e, consequentemente, maximizar o retorno da Old Town Road.Ltda na nova região.
+Os dados utilizados para as análises foram obtidos a partir do arquivo fornecido pelo cliente (relatorio_old_town_road.xlsx).
 
 # Referencial Teórico
 
@@ -160,7 +164,118 @@ Onde:
 Vale ressaltar que o coeficiente de Pearson é paramétrico e, portanto, sensível quanto à normalidade (simetria) dos dados.
 
 # Análises
+
+## Análise da receita média das lojas entre os anos de 1880 até 1889
+
+O objetivo dessa análise é entender o comportamento da receita média dos anos ao longo dos anos, se há ou não um crescimento ou decrescimento durante o período de tempo. Para essa análise, transformamos os dados dos valores das ventas que estavam em dólares, para reais, multiplicando-os por 5,31. Além disso, os dados foram obtidos por meio da junção das tabelas "infos_vendas", "infos_produtos" e "relatorio_vendas". Como ano é uma varíavel quantitativa discreta, uma vez que está definido em um certo intervalo de tempo, e a receita média é uma variável quantitativa discreta, já que depende de uma medição, nesse caso o real, é feito um gráfico de linhas univariado em função dessas duas variáveis. Também há uma tabela com o ano e a receita total média das lojas, a fim de esclareccer os valores.
+
+```{r}
+#| label: fig-grafico
+#| fig-cap: "Receita total média das lojas ao longo dos anos(1880-1889) "
+
+gráfico
+
+```
+
+
+A partir do gráfico, podemos deduzir que a receita média das lojas vêm crescendo ao longo dos anos em um ritmo quase que constante, o valor da receita média só tem uma leve queda no ano de 1888, de 1.687,00 reais, e logo após essas quedas a receita volta a crescer. Em especial, houve um grande crescimento entre os anos de 1888 e 1889, onde a receita média creceu de 21.251,00 reais.
+Pode-se observar que houve um aumento de 147,06% da receita total média em dez anos, e a espectativa para os próximos anos é que essa continue a crescer, se seguir os mesmos padrões.
+
+## Análise da variação de peso pela altura dos clientes
+
+Para analisar a relação entre as duas variáveis quantitativas contínuas , peso e altura, é feito um gráfico de dispersão. O objetivo é compreender como uma variável influencia a outra e se existe uma correlação linear, ou seja, se elas crescem ou decrescem juntas.Não foi realizado nenhum agrupamento de dados para essa análise.
+
+```{r}
+#| label: fig-dispersao
+#| fig-cap: "Gráfico de Dispersão do Peso Pela Altura"
+
+g_dispersao
+
+```
+
+A partir do gráfico, observa-se uma tendência de correlação positiva, pois conforme o valor da altura cresce o valor do peso também cresce, assim as variáveis se movem na mesma direção.
+Para verificação da correlação e sua força, foi calculado o coeficiente de correlação de Pearson, que verifica o grau de relação linear entre as duas variáveis quantitativas, obtendo-se o valor de 0,6971. Isso significa que, realmente, há uma correlação positiva e direta entre as variáveis, além disso, indica que a força de relação linear é de moderada a forte.
+
+## Análise dos perfis das idades dos clientes para cada loja da cidade de Âmbar Seco.
+
+Com o objetivo de entender o perfil da idade dos clientes de Âmbar Seco por loja, foi realizada uma análise descritivas. Os dados foram obtidos por meio da junção das tabelas "infos_vendas", "infos_produtos", "infos_clientes", "infos_lojas",  "infos_cidades". Adicionalmente, o banco de dados foi filtrado para incluir apenas clientes de Âmbar Seco e ajustado para considerar somente clientes únicos, garantindo que a análise do perfil etário não fosse enviesada pelo volume de transações. Além disso, como se tratam de uma variável quantitativa discreta (Idade) e uma variável qualitativa nominal ( Nome da Loja), foi feito um diagrama de caixas bivariado (Figura 3), em função do número da Loja,  e uma tabela de medidas resumo (Tabela 2), contendo: média, mediana, quartis, desvio-padrão.
+
+```{r}
+#| label: fig-3
+#| fig-cap: "Boxplot da idade (anos) pelo nome da loja de Âmbar Seco"
+box
+```
+
+::: {#tbl-modalidades layout-align="center" tbl-pos="H"}
+```{=latex}
+
+\begin{quadro}[H]
+	\setlength{\tabcolsep}{9pt}
+	\renewcommand{\arraystretch}{1.20}
+	\caption{Medidas resumo da idade dos clientes por loja}
+	\centering
+	\begin{adjustbox}{max width=\textwidth}
+	\begin{tabular} { | l |
+			S[table-format = 2.2]
+			S[table-format = 2.2]
+			S[table-format = 3.2]
+			S[table-format = 3.2]
+			|}
+	\hline
+		\textbf{Estatística} & \textbf{Banco Careca} & \textbf{Vendinha Rápida} & \textbf{Saloon} & \textbf{Ferraria Seca} \\
+		\hline
+		Média & 34,92 & 40,35 & 34,2 & 33,67 \\
+		Desvio Padrão & 5,57 & 6,03 & 12,7 & 13,31 \\
+		Variância & 31,06 & 36,39 & 161,23 & 177,18 \\
+		Mínimo & 25 & 30 & 15 & 16 \\
+		1º Quartil & 31 & 35 & 26 & 24 \\
+		Mediana & 34 & 41 & 32,5 & 30,5 \\
+		3º Quartil & 40 & 46 & 38 & 39 \\
+		Máximo & 44 & 49 & 77 & 80 \\
+	\hline
+	\end{tabular}
+	\label{quad:quadro_resumo1}
+	\end{adjustbox}
+\end{quadro}
+```
+
+
+:::
+
+  O diagrama foi construido, de modo que, está ordenado pela ordem crescente da média, que é representada pelo losango branco.
+A Loja Ferraria Seca possui a menor média de idade das lojas, 33,67, e o segundo menor mínimo, 16 anos, além disso, metade das pessoas que vão a essa   Loja têm entre 24 e 39 anos, e possui o maior limite superior, além de vários outliers. 
+Já a Loja Saloon, possui a segunda menor média entre as lojas, 34,2, e o menor mínimo, 15 anos, metade de seus consumidores tem entre 26 e 38  anos e apresenta valores átipicos maiores do que o seu limite superior.
+  A Loja Banco Careca não possui valores discrepantes, e 50% dos seus clientes tem entre 31 e 40 anos, seu limite infeirior é 25 anos, o que já é maior que a média da Loja Ferraria Seca, e seu máximo é 44 anos, diferente das Lojas Saloon e Ferraria Seca que possuem máximos maiores e outliers, isso indica que a idade é mais próxima entre os clientes que a frequentam, o que é confirmado pelo seu desvio-padrão baixo, de 5 anos, o menor desvio padrão, além de ter a menor variância, 31,06. 
+  Por fim, a Loja Vendinha Rápida, possui a maior média, 40,35 anos de idade, e assim como a Loja Saloon, não possui outliers e sua assimetria é muito menor que nas Lojas Ferraria Seca e Saloon, e metade de seus clientes tem entre 35 e 46 anos.
+Portanto, as Lojas Banco Careca e Vendinha Rápida
+, com menores desvios padrão, 5,47 e 6,03, respectivamente, demonstram um público alvo etário mais homogêneo e definido, concentrado entre aproximadamente 30 e 45 anos. Em contraste, as Lojas  Ferraria Seca e Saloon, com altos desvios-padrão, 12,7 e 13,31, indicam uma grande heterogeneidade etária devido à presença de valores atípicos e maior dispersão.
+
+
 ## Análise dos top 3 produtos mais vendidos nas top 3 lojas com maior receita em 1889
   
+  O objetivo dessa análise é compreender quais são os produtos mais vendidos nas três lojas com maior receita no ano de 1889. Para isso, juntamos as tabelas "relatorio_vendas", "infos_produtos", "infos_clientes", "infos_lojas" e "infos_cidades", a fim de organizar uma só tabela que contenha todos os dados necessários para a analíse como o nome da loja, o nome do produto, a quantidade de produtos vendidos, o valor dos produtos e o ano. A partir do valor dos produtos, da quantidade, o ano e do nome da loja conseguimos obter quanto cada loja faturou no ano de 1889, como o preo estava em dólar, ele foi multiplicado por 5,31, considerando a cotação do dólar à 5,31 reais. A seguinte tabela mostra na ordem decrescente o nome da loja e sua receita. 
+  
+  A partir da tabela, podemos notar que as três lojas com maior faturamento do maior para o menos foram: Loja Ouro Fino, Loja TendTudo e Ferraria Apache, com a receita de 197.313,00 reias, 196.340,00 reais e 181.689,00 reais, respectivamente. Então, são elas que foram analizadas.
+  A seguinte tabela mostra em ordem decrescente os produtos e a quantidade de itens que foram comprados na Loja Ouro Fino em 1889.
+  
+  
+  Diante disso, observa-se que os produtos mais vendidos na Loja Ouro Fino foram: Botas de Couro, Whisky e Chapéu de Couro.
+  
+  
+  
+  
+A próxima tabela mostra em ordem decrescente os produtos e a quantidade de itens que foram vendidos na Loja TendTudo em 1889.
+
+
+
+Sendo assim, os três produtos mais vendidos na Loja TendTudo foram a Espingarda, o Whisky e o Colt. 45. 
+
+A seguinte tabela mostra em ordem decrescente os produtos e a quantidade de itens que foram vendidos na Ferraria Apache em 1889.
+
+
+Como resultado, é observado que os produtos mais vendidos na  Ferraria Apache foram: Chapéu de Couro, Espingarda e Machado.
+
+Prtanto, pode-se observar que os únicos dois itens que apareceram em duas lojas com as maiores receitas foram  o Chapéu de Couro e o Whisky, fora esses nenhum outro item se repetiu, o que indica que não há muita relação entre o item os mais vendidos e o faturamento da loja.
+
 
 # Conclusões

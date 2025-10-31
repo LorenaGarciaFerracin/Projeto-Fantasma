@@ -13,7 +13,7 @@ source("rdocs/entrega_2.R")
 # Rodar apenas uma vez na vida!
 ## Instalando o tinytex(pacote apenas)
 ### CRAN version
-#install.packages('tinytex')
+install.packages('tinytex')
 
 
 ## Baixando o tinytex
